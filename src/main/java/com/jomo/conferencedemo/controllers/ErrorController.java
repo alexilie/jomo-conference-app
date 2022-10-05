@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorContro
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,7 +15,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller
+@RestController
+@RequestMapping("${app.error-status.api.context.path}")
 public class ErrorController {
 
     @Value("${app.error.message}")
@@ -28,8 +30,7 @@ public class ErrorController {
     }
 
     @GetMapping
-    @RequestMapping("/api/v1/error")
-    public Map getError(){
+    public Map getErrorStatus(){
         Map map = new HashMap<String, String>();
         map.put("application-error", applicationErrorMessage);
         return map;

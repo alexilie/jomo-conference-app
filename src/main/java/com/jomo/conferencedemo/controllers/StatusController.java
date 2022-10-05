@@ -14,7 +14,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller
+@RestController
+@RequestMapping("${app.status.api.context.path}")
 public class StatusController {
 
     @Value("${app.description}")
@@ -108,7 +109,6 @@ public class StatusController {
     // getters, setters, toString
 
     @GetMapping
-    @RequestMapping("/api/v1/status")
     public Map getStatus(){
         Map map = new HashMap<String, String>();
         map.put("app-description", appDescription);

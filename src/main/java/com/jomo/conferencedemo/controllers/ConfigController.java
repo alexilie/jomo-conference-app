@@ -14,7 +14,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller
+@RestController
+@RequestMapping("${app.config.api.context.path}")
 public class ConfigController {
 
     @Value("${app.description}")
@@ -104,9 +105,7 @@ public class ConfigController {
         this.localDateTime = localDateTime;
     }
 
-
     @GetMapping
-    @RequestMapping("/api/v1/config")
     public Map getConfig(){
         Map map = new HashMap<String, String>();
         map.put("app-datasource-name", springDataSourceName);

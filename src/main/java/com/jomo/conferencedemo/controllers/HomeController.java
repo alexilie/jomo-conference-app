@@ -16,7 +16,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller
+@RestController
+@RequestMapping("${app.home.api.context.path}")
 public class HomeController {
 
     @Value("${app.description}")
@@ -107,7 +108,6 @@ public class HomeController {
     }
 
     @GetMapping
-    @RequestMapping("/api/v1/home")
     public Map getConfig(){
         Map map = new HashMap<String, String>();
 

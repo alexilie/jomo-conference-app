@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/sessions")
+@RequestMapping("${app.sessions.api.context.path}")
 public class SessionsController {
     @Autowired
     private SessionRepository sessionRepository;
